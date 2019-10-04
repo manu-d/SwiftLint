@@ -155,7 +155,12 @@ public struct Configuration: Hashable {
         }
         do {
             let yamlContents = try String(contentsOfFile: fullPath, encoding: .utf8)
-            let dict = try YamlParser.parse(yamlContents)
+            var dict = try YamlParser.parse(yamlContents)
+            let mandatoryContents = try String(contentsOfFile: "mandatoryRules.yml", encoding: .utf8)
+            let mandatoryDic = try YamlParser.parse(mandatoryContents)
+            for (k, v) in mandatoryDic {
+                dict.updateValue(v, forKey: k)
+            }
             if !quiet {
                 queuedPrintError("Loading configuration from '\(path)'")
             }
