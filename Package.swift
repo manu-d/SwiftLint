@@ -10,7 +10,7 @@ private let addCryptoSwift = true
 let package = Package(
     name: "SwiftLint",
     products: [
-        .executable(name: "swiftlint", targets: ["swiftlint"]),
+        .executable(name: "ntmoswiftlint", targets: ["swiftlint"]),
         .library(name: "SwiftLintFramework", targets: ["SwiftLintFramework"])
     ],
     dependencies: [

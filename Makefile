@@ -16,7 +16,7 @@ SWIFT_BUILD_FLAGS+= -Xswiftc -static-stdlib
 endif
 endif
 
-SWIFTLINT_EXECUTABLE=$(shell swift build $(SWIFT_BUILD_FLAGS) --show-bin-path)/swiftlint
+SWIFTLINT_EXECUTABLE=$(shell swift build $(SWIFT_BUILD_FLAGS) --show-bin-path)/ntmoswiftlint
 
 TSAN_LIB=$(subst bin/swift,lib/swift/clang/lib/darwin/libclang_rt.tsan_osx_dynamic.dylib,$(shell xcrun --find swift))
 TSAN_SWIFT_BUILD_FLAGS=-Xswiftc -sanitize=thread
